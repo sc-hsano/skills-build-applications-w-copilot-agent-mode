@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { Activity, LeaderboardEntry, Team, User, Workout } from './models';
-import { connectDB } from './database';
+import connectDB from './config/database';
 
 dotenv.config();
 

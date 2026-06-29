@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 import { Activity, LeaderboardEntry, Team, User, Workout } from '../models';
-import { connectDB, disconnectDB } from '../database';
+import connectDB from '../config/database';
 
 dotenv.config();
 
@@ -156,11 +157,11 @@ const seedDatabase = async () => {
 
 seedDatabase()
   .then(async () => {
-    await disconnectDB();
+    await mongoose.disconnect();
     console.log('Database connection closed.');
   })
   .catch(async (error) => {
     console.error('Failed to seed octofit_db:', error);
-    await disconnectDB();
+    await mongoose.disconnect();
     process.exit(1);
   });
