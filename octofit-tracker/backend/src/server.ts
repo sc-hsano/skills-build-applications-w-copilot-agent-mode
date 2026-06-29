@@ -7,11 +7,11 @@ import connectDB from './config/database';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 8000;
+const PORT = 8000;
 const codespaceName = process.env.CODESPACE_NAME;
 const apiBaseUrl = codespaceName
   ? `https://${codespaceName}-8000.app.github.dev`
-  : `http://localhost:${PORT}`;
+  : 'http://localhost:8000';
 
 // Middleware
 app.use(cors());
